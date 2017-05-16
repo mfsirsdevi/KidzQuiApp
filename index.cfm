@@ -29,6 +29,9 @@
   </head>
 
   <body class="login">
+  <cfif SESSION.isLogged EQ "true">
+      <cflocation url="views/dashboard.cfm" addToken="false"></cflocation>
+    </cfif>
     <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>

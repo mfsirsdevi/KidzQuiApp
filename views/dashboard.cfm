@@ -5,10 +5,14 @@
   * Purpose: dashboard for users - Admin, Evaluator and Student
   * Date: 11-05-2017
 -->
+<cfif SESSION.isLogged EQ "false">
+      <cflocation url="../index.cfm" addToken="false"></cflocation>
+    </cfif>
 
 <cfinclude template="includes/header.cfm">
 
 <cfinclude template="includes/maintemplate.cfm">
+
 
         <!-- page content -->
         <div class="right_col" role="main">

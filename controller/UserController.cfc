@@ -1,5 +1,5 @@
 component {
-    
+
     loginObject = CreateObject("component", "model.UserModel");
    /**
     * Function to create a record of new user registered.
@@ -11,6 +11,7 @@ component {
     */
   public string function registerUser(string name, string email, string password, string cPassword)
   {
+
     var searchUser = loginObject.searchUser(email);
     if(searchUser.getResult().recordCount EQ 0) {
       var isRegistered = loginObject.createUser(name, email, password);
@@ -21,7 +22,7 @@ component {
     }
     return "Email Already Exists!";
   }
-  
+
   /**
     * Function to log the existing user in.
     *
@@ -29,7 +30,7 @@ component {
     * @param string password - contains passwoed of the user.
     * @return - Returns string value based on whether user exists or not.
     */
-  
+
   public string function loginUser(string email, string password)
   {
     var isUser = loginObject.searchUser(email);
@@ -51,11 +52,11 @@ component {
       return "Email does not exist";
     }
   }
-  
+
   /**
     *
     */
-    
+
   public string function resetPassword(string password, string cpassword, string email)
   {
     if(password NEQ cpassword)
@@ -65,19 +66,19 @@ component {
       location(url = "../index.cfm" addToken="false");
     return "Failed to update the password";
   }
-  
+
   public any function userDetails(string email)
   {
     return loginObject.searchUser(email);
   }
-  
+
   /**
     * Function to logout the user.
     *
     * @param void.
     * @return - void.
     */
-  
+
   public void function logoutUser()
   {
     if(SESSION.email NEQ "") {
